@@ -1,0 +1,54 @@
+#!/bin/bash
+clear
+
+path=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
+
+cd $path
+
+
+
+
+                kern=$(uname -r)
+	        YELLOW='\033[1;33m'
+	        NC='\033[0m'
+			echo "##########################################"
+			echo -e "# Current Kernel: ${YELLOW}$kern${NC}       #"
+			echo "# IF LASTEST DO NOT REMOVE THIS kERNEL   #"
+			echo "##########################################"
+
+		echo ""
+		echo ""
+		dpkg --list | grep linux-image
+echo ""
+echo ""
+echo "###########################################################################"
+
+			read -p "Copy and Paste what kernel you want to delete
+i.e linux-image-X.X.X-XX-generic or exit to exit: " k
+
+		
+
+				if [ "$k" == "exit" ];
+					then 
+						clear
+						exit
+				elif [ "$k" == "" ];
+					then
+						bash .update1.sh
+				elif [ "$k" == " " ];
+					then
+						bash .update1.sh
+
+				elif [ -d "/user/src/xpad-0.4" ];
+                    then
+					sudo apt-get purge $k && cd /usr/src/xpad-0.4 && sudo git fetch && sudo git checkout origin/master && sudo dkms remove -m xpad -v 0.4 --all && sudo dkms install -m xpad -v 0.4 && cd $path && sudo update-grub
+					lxterminal --geometry=80x24 -e bash Welcome.sh
+				else 
+					sudo apt-get purge $k && sudo update-grub
+					lxterminal --geometry=80x24 -e bash Welcome.sh	
+		
+				fi
+
+
+
+
