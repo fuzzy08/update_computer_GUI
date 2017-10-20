@@ -161,13 +161,11 @@ sleep 3
 dialog --clear --yesno "Would you like to install git?"
 update=$?
 case $update in
-    0) passwords && sudo apt install git -y;;
+    0) passwords && echo $password | sudo -S apt install git -y;;
     1) clear && exit 0;;
     255) echo "something went wrong"; break;;
 esac
 
-if [[ "$gitInstall" == "y" || "$gitInstall" == "Y" ]]; then
-sudo apt-get install git -y
 bash Welcome.sh
 exit
 else
