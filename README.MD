@@ -38,6 +38,7 @@ Update_Computer_GUI v1.0.0 REV 2 - ALPHA
 
  **NOW SUPPORTS LXTERMINAL**
 - Auto removes unnecessary files.
+- uses less files than original update_computer. Will add this to the original as well.
 - Other small bug fixes
 
 ############################
