@@ -28,7 +28,7 @@ Update_Computer_GUI v1.0.0 REV 1 - ALPHA
 - Kernel Unistaller is safe to work if used properly (has been tested).
 - bug fixes
 
-**-still only for gnome-terminal will try include xfce terminal in next REV.**
+**-still only for gnome-terminal will try include lxterminal in next REV.**
 
 
 ############################
