@@ -81,7 +81,7 @@ clear
                 fi
             fi
 
-}
+
 				
 		else
 					sudo apt-get purge $dk && sudo update-grub
