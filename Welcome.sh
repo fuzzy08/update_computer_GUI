@@ -168,10 +168,8 @@ esac
 
 bash Welcome.sh
 exit
-else
-exit
 fi
-fi
+
 
 check="$(git fetch -v --dry-run 2>&1)"
 echo "${check}" > .update.txt
@@ -193,7 +191,7 @@ git clone https://github.com/krazynez/update_computer_GUI.git temp
 rsync -a temp/ $path
 echo "${check}" > .old_update.txt
 rm -rf temp
-
+fi
 ############# Checking if Welcome.sh is executable after update ##########
 
 if [[ ! -x Welcome.sh ]]; then
@@ -204,9 +202,8 @@ fi
 
 bash Welcome.sh
 
-exit
-	fi
-
+exit 0;
+	
 
  	if [[ "$?" == "1" ]]; then
 clear
