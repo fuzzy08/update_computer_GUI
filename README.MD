@@ -33,6 +33,27 @@ Update_Computer_GUI v1.0.0 REV 1 - ALPHA
 
 ############################
 
+
+Update_Computer_GUI v1.0.0 REV 2 - ALPHA
+
+ **NOW SUPPORTS LXTERMINAL**
+- Auto removes unnecessary files.
+- Other small bug fixes
+
+############################
+
+
+
+
+
+
+
+
+
+
+
+
+
 By,
 
 

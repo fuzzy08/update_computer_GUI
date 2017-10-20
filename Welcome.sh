@@ -100,6 +100,23 @@ Exit(){
 
 update_program(){
 
+
+############# Checking for useless files ##############
+
+if [[ -f "_update1.sh - do not use" ]]; then
+rm "_update1.sh - do not use"
+fi
+    if [[ -f ".update.txt" ]]; then
+    rm .update.txt
+    fi
+        if [[ -f ".update1.sh" ]]; then
+        rm .update1.sh
+        fi
+               if [[ -f "test.sh use for debugging" ]]; then
+               rm "test.sh use for debugging"
+
+fi
+
 ############# Checking if Welcome.sh is executable ##########
 
 if [[ ! -x Welcome.sh ]]; then
@@ -226,18 +243,6 @@ sleep 10
 
 main(){
 update_program
-
-if [[ -f "_.update1.sh - do not use" ]]; then
-rm "_.update1.sh - do not use"
-elif [[ -f ".update.txt" ]]; then
-rm ".update.txt"
-elif [[ -f ".update1.sh" ]]; then
-rm ".update.sh"
-elif [[ -f "_update.sh" ]]; then
-rm "_update.sh"
-elif [[ -f "test.sh use for debugging" ]]; then
-rm "test.sh use for debugging"
-fi
 
 clear
 
