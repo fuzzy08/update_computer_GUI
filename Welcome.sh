@@ -62,31 +62,7 @@ if [ -f /usr/bin/screenfetch ]; then
 
 Update_computer(){
 
-if [ -f "/usr/bin/gnome-terminal" ]; then
-            dialog --clear
-            bash .update.sh
-            exit
-            else
-            clear
-            kl="$( echo $$ )"
-            path=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
-            cd $path
-            dialog --title "Update computer?" \
-            dialog --msgbox "\n Do you want to update your computer?" 10 20
-            dialog --title "Update?" --yesno "Do you wish to update your computer?" 6 20
-                update=$?
-                
-                case $update in
-                    0) passwords && echo $password | sudo -S apt update && echo $password | sudo -S apt upgrade -yy && echo $password | sudo -S apt dist-upgrade -yy && echo $password | sudo -S apt autoremove -yy && echo $password | sudo -S apt autoclean;;
-                    1) bash Welcome.sh && exit;;
-                    255) echo "Something went wrong"; break;;
-                esac
-
-
-
-fi
-
-
+bash .update.sh
 
 
 }

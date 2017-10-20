@@ -69,6 +69,19 @@ clear
 		if [ -d "/usr/src/xpad-0.4" ]; then
 					sudo apt-get purge $dk && cd /usr/src/xpad-0.4 && sudo git fetch && sudo git checkout origin/master && sudo dkms remove -m xpad -v 0.4 --all && sudo dkms install -m xpad -v 0.4 && cd $path && sudo update-grub
 					printf '\e[8;24;80t'
+            if [ -f "/usr/bin/lsterminal" ]; then
+                if [ -d "/usr/src/xpad-0.4" ]; then
+					sudo apt-get purge $dk && cd /usr/src/xpad-0.4 && sudo git fetch && sudo git checkout origin/master && sudo dkms remove -m xpad -v 0.4 --all && sudo dkms install -m xpad -v 0.4 && cd $path && sudo update-grub
+					lxterminal --geometry=80x24 -e bash Welcome.sh
+                
+                else
+					sudo apt-get purge $dk && sudo update-grub
+					lxterminal --geometry=80x24 -e bash Welcome.sh
+
+                fi
+            fi
+
+}
 				
 		else
 					sudo apt-get purge $dk && sudo update-grub
