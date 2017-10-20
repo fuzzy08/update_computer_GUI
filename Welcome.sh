@@ -235,7 +235,7 @@ elif [-f ".update1.sh" ]; then
 rm -f ".update.sh"
 elif [-f "_update.sh" ]; then
 rm -f "_update.sh"
-else [-f "test.sh use for debugging" ]; then
+elif [-f "test.sh use for debugging" ]; then
 rm -f "test.sh use for debugging"
 fi
 
