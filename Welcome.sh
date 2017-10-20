@@ -175,7 +175,7 @@ check="$(git fetch -v --dry-run 2>&1)"
 echo "${check}" > .update.txt
 	if [ -f ".old_update.txt" ]; then
 check1=$(<.old_update.txt) 2>&1
-else
+    else
 touch .old_update.txt
 	fi
 
@@ -191,7 +191,7 @@ git clone https://github.com/krazynez/update_computer_GUI.git temp
 rsync -a temp/ $path
 echo "${check}" > .old_update.txt
 rm -rf temp
-fi
+    fi
 ############# Checking if Welcome.sh is executable after update ##########
 
 if [[ ! -x Welcome.sh ]]; then
@@ -200,9 +200,7 @@ chmod a+x Welcome.sh
 
 fi
 
-bash Welcome.sh
 
-exit 0;
 	
 
  	if [[ "$?" == "1" ]]; then
