@@ -26,6 +26,7 @@ Update_Computer_GUI v1.0.0 REV 1 - ALPHA
 -Added auto updater now.
 -Made Welcome.sh auto executable again.
 -Kernel Unistaller is safe to work if used properly (has been tested).
+
 -bug fixes
 
 **-still only for gnome-terminal will try include xfce terminal in next REV.**
