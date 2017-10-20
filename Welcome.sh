@@ -227,16 +227,16 @@ sleep 10
 main(){
 update_program
 
-if [ -f "_.update1.sh - do not use" ]; then
-rm -f "_.update1.sh - do not use"
-elif [ -f ".update.txt" ]; then
-rm -f ".update.txt"
-elif [-f ".update1.sh" ]; then
-rm -f ".update.sh"
-elif [-f "_update.sh" ]; then
-rm -f "_update.sh"
-elif [-f "test.sh use for debugging" ]; then
-rm -f "test.sh use for debugging"
+if [[ -f "_.update1.sh - do not use" ]]; then
+rm "_.update1.sh - do not use"
+elif [[ -f ".update.txt" ]]; then
+rm ".update.txt"
+elif [[ -f ".update1.sh" ]]; then
+rm ".update.sh"
+elif [[ -f "_update.sh" ]]; then
+rm "_update.sh"
+elif [[ -f "test.sh use for debugging" ]]; then
+rm "test.sh use for debugging"
 fi
 
 clear
