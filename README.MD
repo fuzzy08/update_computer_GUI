@@ -51,6 +51,7 @@ Update_Computer_GUI v1.0.0 REV 3 - ALPHA
 
 - Added error trap when trying to run multiple Welcome.sh processes.
 - Fixed dialog box if git is not installed.
+- Fixed kernel still updating grub after saying Cancel for uninstalling a kernel.
 
 
 
