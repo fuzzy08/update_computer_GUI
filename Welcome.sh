@@ -244,7 +244,25 @@ sleep 10
 main(){
 update_program
 
+
+####### Check if parent or child process is already running ##########
+
+if pidof -o %PPID -x "Welcome.sh" >/dev/null; then
+    dialog --infobox "Welcome.sh already running" 10 20
+    exit 0;
+elif pidof -o %PPID -x ".update.sh" >/dev/null; then
+    dialog --infobox ".update.sh already running" 10 20
+    sleep 5
+    exit 0;
+fi
+
+
+
+
+
 clear
+
+
 
 
 INPUT='/tmp/menu.output'

@@ -35,6 +35,7 @@ Update_Computer_GUI v1.0.0 REV 1 - ALPHA
 
 
 Update_Computer_GUI v1.0.0 REV 2 - ALPHA
+10/20/2017
 
  **NOW SUPPORTS LXTERMINAL**
 - Auto removes unnecessary files.
@@ -44,6 +45,15 @@ Update_Computer_GUI v1.0.0 REV 2 - ALPHA
 ############################
 
 
+Update_Computer_GUI v1.0.0 REV 3 - ALPHA
+10/23/2017
+
+
+- Added error trap when trying to run multiple Welcome.sh processes.
+
+
+
+############################
 
 
 
