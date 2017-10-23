@@ -151,7 +151,7 @@ clear
 dialog --infobox "You need to install git first..." 10 20
 
 sleep 3
-dialog --clear --yesno "Would you like to install git?"
+dialog --clear --yesno "Would you like to install git?" 10 20
 update=$?
 case $update in
     0) passwords && echo $password | sudo -S apt install git -y;;
