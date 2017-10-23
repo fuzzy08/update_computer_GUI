@@ -242,7 +242,7 @@ sleep 10
 ################ OPTIONS ########################
 
 main(){
-#update_program
+update_program
 
 
 ####### Check if parent or child process is already running ##########
