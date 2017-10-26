@@ -173,19 +173,19 @@ update_program(){
 ############# Checking for useless files ##############
 
 if [[ -f "_update1.sh - do not use" ]]; then
-rm "_update1.sh - do not use"
+rm -rf "_update1.sh - do not use"
 
     elif [[ -f ".update.txt" ]]; then
-    rm .update.txt
+    rm -rf .update.txt
     
         elif [[ -f ".update1.sh" ]]; then
-        rm .update1.sh
+        rm -rf .update1.sh
         
                elif [[ -f "test.sh use for debugging" ]]; then
-               rm "test.sh use for debugging"
+               rm -rf "test.sh use for debugging"
                 
                        elif [[ -f ".update.sh" ]]; then
-                       rm ".update.sh"
+                       rm -rf ".update.sh"
 
 fi
 
