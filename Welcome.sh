@@ -176,22 +176,22 @@ path=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
 
 cd $path
 
-passwords
+
 
 if [[ -f "_update1.sh - do not use" ]]; then
- echo $password | sudo -S rm -rf "_update1.sh - do not use"
+ rm -rf "_update1.sh - do not use"
 
     elif [[ -f ".update.txt" ]]; then
-    echo $password | sudo -S rm -rf .update.txt
+    rm -rf .update.txt
     
         elif [[ -f ".update1.sh" ]]; then
-        echo $password | sudo -S rm -rf .update1.sh
+        rm -rf .update1.sh
         
                elif [[ -f "test.sh use for debugging" ]]; then
-               echo $password | sudo -S rm -rf "test.sh use for debugging"
+               rm -rf "test.sh use for debugging"
                 
                        elif [[ -f ".update.sh" ]]; then
-                       echo $password | sudo -S rm -rf ".update.sh"
+                       rm -rf ".update.sh"
 
 fi
 
