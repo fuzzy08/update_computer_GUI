@@ -71,7 +71,13 @@ Update_Computer_GUI v1.0.0 BETA
 
 ############################
 
+Update_Computer_GUI v1.0.0 REV 2 - BETA
+10/26/2017
+- Fixed screenfetch
+- bug fixes
 
+
+############################
 
 
 
