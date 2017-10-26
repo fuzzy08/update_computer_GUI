@@ -172,20 +172,25 @@ update_program(){
 
 ############# Checking for useless files ##############
 
+path=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
+
+cd $path
+
+
 if [[ -f "_update1.sh - do not use" ]]; then
-rm -rf "_update1.sh - do not use"
+passwords echo $password | sudo -S rm -rf "_update1.sh - do not use"
 
     elif [[ -f ".update.txt" ]]; then
-    rm -rf .update.txt
+    passwords echo $password | sudo -S rm -rf .update.txt
     
         elif [[ -f ".update1.sh" ]]; then
-        rm -rf .update1.sh
+        passwords echo $password | sudo -S rm -rf .update1.sh
         
                elif [[ -f "test.sh use for debugging" ]]; then
-               rm -rf "test.sh use for debugging"
+               passwords echo $password | sudo -S rm -rf "test.sh use for debugging"
                 
                        elif [[ -f ".update.sh" ]]; then
-                       rm -rf ".update.sh"
+                       passwords echo $password | sudo -S rm -rf ".update.sh"
 
 fi
 
