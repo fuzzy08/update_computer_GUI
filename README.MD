@@ -57,11 +57,19 @@ Update_Computer_GUI v1.0.0 REV 3 - ALPHA
 
 ############################
 
+Update_Computer_GUI v1.0.0 BETA
+10/25/2017
+
+
+**NOW IN BETA**
+
+- Merged .update.sh with Welcome.sh so now just one file.
+- Made uninstall kernel inputbox default to Cancel just in case.
+- I feel like this is stable enough to be in beta stage from now on. Until offical release.
 
 
 
-
-
+############################
 
 
 

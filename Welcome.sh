@@ -23,7 +23,7 @@ password=$(<"${pass}")
 
 ################ ABOUT COMPUTER SECTION #####################
 
-function screenFetch(){
+screenFetch(){
 
 if [ -f /usr/bin/screenfetch ]; then
         dialog --clear
@@ -59,12 +59,81 @@ if [ -f /usr/bin/screenfetch ]; then
 
 
 
-
 Update_computer(){
 
-bash .update.sh
+path=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
+
+cd $path
 
 
+########## completely updates and removes old packages ###########
+dialog --clear --yesno "Do you want to update your computer?" 10 30
+update=$?
+
+case $update in
+    
+    0) passwords && echo $password | sudo -S apt update && echo $password | sudo -S apt upgrade -yy && echo $password | sudo -S apt dist-upgrade -yy && echo $password | sudo -S apt autoremove -yy && echo $password | sudo -S apt autoclean;;
+    1) clear && exit 0;;
+    255) echo "something went wrong";;
+esac
+
+kernelUninstall
+
+}
+
+######### Uninstall old kernels #################
+
+kernelUninstall(){
+	dialog --title "Kernel Uninstall" --defaultno --yesno "Do you want to see if you can uninstall old kernels?" 10 30 
+    kernel=$?
+
+
+
+
+
+
+		case $kernel in
+       0) kern=$(uname -r)
+		dialog --infobox "!DO NOT DELETE THIS IF MOST CURRENT! \nCurrent Kernel: $kern" 10 50
+        sleep 10
+       kernel=$(dpkg --list | grep linux-image)
+		 dialog --title "Copy just linux-image-X.X.X-XX-generic" --backtitle "Kernel to uninstall" --infobox "$kernel" 15 70
+        sleep 20;;
+        
+        
+        1) clear && exit 0;;	
+           esac
+local deleteKern=$(tempfile 2>/dev/null)
+       
+dialog --title "CTRL + SHIFT + V for the kernel you want to delete i.e linux-image-X.X.X-XX-generic" --backtitle "Select Kernel to Uninstall" --defaultno --inputbox "Kernel: " 15 70 2>$deleteKern
+kernel=$?
+dk=$(<"${deleteKern}")
+clear 
+        case $kernel in
+		0) if [ -d "/usr/src/xpad-0.4" ]; then
+					sudo apt purge $dk && cd /usr/src/xpad-0.4 && sudo git fetch && sudo git checkout origin/master && sudo dkms remove -m xpad -v 0.4 --all && sudo dkms install -m xpad -v 0.4 && cd $path && sudo update-grub
+					printf '\e[8;24;80t'
+            if [ -f "/usr/bin/lsterminal" ]; then
+                if [ -d "/usr/src/xpad-0.4" ]; then
+					sudo apt purge $dk && cd /usr/src/xpad-0.4 && sudo git fetch && sudo git checkout origin/master && sudo dkms remove -m xpad -v 0.4 --all && sudo dkms install -m xpad -v 0.4 && cd $path && sudo update-grub
+					lxterminal --geometry=80x24 -e main
+                
+                else
+					sudo apt purge $dk && sudo update-grub
+					lxterminal --geometry=80x24 -e main
+
+                fi
+            fi
+
+
+				
+		else
+					sudo apt purge $dk && sudo update-grub
+					printf '\e[8;24;80t'
+		fi;;
+        1) exit 0;;
+        255) echo "something went wrong"; break;;
+        esac
 }
 
 
@@ -76,7 +145,7 @@ Fix_Dpkg(){
 passwords
 
 echo $password | sudo -S apt install -f
-bash Welcome.sh                                    
+main                                   
 exit 0;
 
 }
@@ -96,7 +165,7 @@ Exit(){
 
 
 
-
+######### auto update program #############
 
 update_program(){
 
@@ -105,15 +174,18 @@ update_program(){
 
 if [[ -f "_update1.sh - do not use" ]]; then
 rm "_update1.sh - do not use"
-fi
-    if [[ -f ".update.txt" ]]; then
+
+    elif [[ -f ".update.txt" ]]; then
     rm .update.txt
-    fi
-        if [[ -f ".update1.sh" ]]; then
+    
+        elif [[ -f ".update1.sh" ]]; then
         rm .update1.sh
-        fi
-               if [[ -f "test.sh use for debugging" ]]; then
+        
+               elif [[ -f "test.sh use for debugging" ]]; then
                rm "test.sh use for debugging"
+                
+                       elif [[ -f ".update.sh" ]]; then
+                       rm ".update.sh"
 
 fi
 
@@ -138,7 +210,7 @@ cd ..
 path=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P );
 mv update_computer_GUI-master $path/update_computer_GUI
 cd update_computer_GUI
-bash Welcome.sh
+main
 exit
 fi
 
@@ -159,7 +231,7 @@ case $update in
     255) echo "something went wrong"; break;;
 esac
 
-bash Welcome.sh
+main
 exit
 fi
 
