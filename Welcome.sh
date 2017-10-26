@@ -178,8 +178,8 @@ cd $path
 
 
 
-if [[ -f "_update1.sh - do not use" ]]; then
- rm -rf "_update1.sh - do not use"
+if [[ -f ".update.sh" ]]; then
+ rm -rf ".update.sh"
 
     elif [[ -f ".update.txt" ]]; then
     rm -rf .update.txt
@@ -190,8 +190,8 @@ if [[ -f "_update1.sh - do not use" ]]; then
                elif [[ -f "test.sh use for debugging" ]]; then
                rm -rf "test.sh use for debugging"
                 
-                       elif [[ -f ".update.sh" ]]; then
-                       rm -rf ".update.sh"
+                       elif [[ -f "_update1.sh - do not use" ]]; then
+                       rm -rf "_update1.sh - do not use"
 
 fi
 
