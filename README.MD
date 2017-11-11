@@ -8,7 +8,7 @@ Updates computer, also removes old kernels and fixes dpkg error.
 ############################
 
 Update_Computer_GUI v1.0.0 - ALPHA
-10/18/2017 
+10/18/2017
 
 - initial release
 - only works with gnome-terminal for now
@@ -65,7 +65,7 @@ Update_Computer_GUI v1.0.0 BETA
 
 - Merged .update.sh with Welcome.sh so now just one file.
 - Made uninstall kernel inputbox default to Cancel just in case.
-- I feel like this is stable enough to be in beta stage from now on. Until offical release.
+- I feel like this is stable enough to be in beta stage from now on. Until official release.
 
 
 
@@ -79,6 +79,12 @@ Update_Computer_GUI v1.0.0 REV 2 - BETA
 
 ############################
 
+Update_Computer_GUI v1.0.0 REV 3 - BETA
+11/11/2017
+- Fixed dialog install before running application.
+
+
+############################
 
 
 By,

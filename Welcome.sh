@@ -30,7 +30,7 @@ if [ -f /usr/bin/screenfetch ]; then
         clear
         screenfetch
         read -p "Press enter to continue"
-        main                       
+        main
         exit
 
     else
@@ -39,10 +39,10 @@ if [ -f /usr/bin/screenfetch ]; then
         dialog --msgbox "\n You do not have screenfetch installed" 10 20
         dialog --title "Install?" --yesno "Want to install screenfetch?" 6 20
             response=$?
-            
+
             case $response in
-                0) passwords && echo $password | sudo -S apt install screenfetch && clear && screenfetch && read -p "Press enter to continue" && main;;    
-                1) main;; 
+                0) passwords && echo $password | sudo -S apt install screenfetch && clear && screenfetch && read -p "Press enter to continue" && main;;
+                1) main;;
                 255) echo "Something went wrong"; break;;
             esac
     fi
@@ -71,7 +71,7 @@ dialog --clear --yesno "Do you want to update your computer?" 10 30
 update=$?
 
 case $update in
-    
+
     0) passwords && echo $password | sudo -S apt update && echo $password | sudo -S apt upgrade -yy && echo $password | sudo -S apt dist-upgrade -yy && echo $password | sudo -S apt autoremove -yy && echo $password | sudo -S apt autoclean;;
     1) clear && exit 0;;
     255) echo "something went wrong";;
@@ -84,7 +84,7 @@ kernelUninstall
 ######### Uninstall old kernels #################
 
 kernelUninstall(){
-	dialog --title "Kernel Uninstall" --defaultno --yesno "Do you want to see if you can uninstall old kernels?" 10 30 
+	dialog --title "Kernel Uninstall" --defaultno --yesno "Do you want to see if you can uninstall old kernels?" 10 30
     kernel=$?
 
 
@@ -99,16 +99,16 @@ kernelUninstall(){
        kernel=$(dpkg --list | grep linux-image)
 		 dialog --title "Copy just linux-image-X.X.X-XX-generic" --backtitle "Kernel to uninstall" --infobox "$kernel" 15 70
         sleep 20;;
-        
-        
-        1) clear && exit 0;;	
+
+
+        1) clear && exit 0;;
            esac
 local deleteKern=$(tempfile 2>/dev/null)
-       
+
 dialog --title "CTRL + SHIFT + V for the kernel you want to delete i.e linux-image-X.X.X-XX-generic" --backtitle "Select Kernel to Uninstall" --defaultno --inputbox "Kernel: " 15 70 2>$deleteKern
 kernel=$?
 dk=$(<"${deleteKern}")
-clear 
+clear
         case $kernel in
 		0) if [ -d "/usr/src/xpad-0.4" ]; then
 					sudo apt purge $dk && cd /usr/src/xpad-0.4 && sudo git fetch && sudo git checkout origin/master && sudo dkms remove -m xpad -v 0.4 --all && sudo dkms install -m xpad -v 0.4 && cd $path && sudo update-grub
@@ -117,7 +117,7 @@ clear
                 if [ -d "/usr/src/xpad-0.4" ]; then
 					sudo apt purge $dk && cd /usr/src/xpad-0.4 && sudo git fetch && sudo git checkout origin/master && sudo dkms remove -m xpad -v 0.4 --all && sudo dkms install -m xpad -v 0.4 && cd $path && sudo update-grub
 					lxterminal --geometry=80x24 -e main
-                
+
                 else
 					sudo apt purge $dk && sudo update-grub
 					lxterminal --geometry=80x24 -e main
@@ -126,7 +126,7 @@ clear
             fi
 
 
-				
+
 		else
 					sudo apt purge $dk && sudo update-grub
 					printf '\e[8;24;80t'
@@ -145,7 +145,7 @@ Fix_Dpkg(){
 passwords
 
 echo $password | sudo -S apt install -f
-main                                   
+main
 exit 0;
 
 }
@@ -183,13 +183,13 @@ if [[ -f ".update.sh" ]]; then
 
     elif [[ -f ".update.txt" ]]; then
     rm -rf .update.txt
-    
+
         elif [[ -f ".update1.sh" ]]; then
         rm -rf .update1.sh
-        
+
                elif [[ -f "test.sh use for debugging" ]]; then
                rm -rf "test.sh use for debugging"
-                
+
                        elif [[ -f "_update1.sh - do not use" ]]; then
                        rm -rf "_update1.sh - do not use"
 
@@ -210,7 +210,7 @@ fi
 
 movePath=$(basename "$PWD");
 
-if [[ $movePath == "update_computer_GUI-master" ]]; 
+if [[ $movePath == "update_computer_GUI-master" ]];
 then
 cd ..
 path=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P );
@@ -224,6 +224,17 @@ path=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P );
 
 ############ AUTO UPDATER ########################
 
+### Dialog Installer ##############
+if [[ ! -f "/usr/bin/dialog" ]]; then
+  clear
+  echo "You do not have 'Dialog' installed"
+  read -p "Would you like to install Dialog? y/n: " dia
+    if [[ "$dia" == "y" ]]; then
+      passwords && echo $password | sudo -S apt install dialog -y;
+    fi
+fi
+
+##### Git Installer ###############
 if [[ ! -f "/usr/bin/git" ]]; then
 clear
 dialog --infobox "You need to install git first..." 10 20
@@ -272,7 +283,7 @@ chmod a+x Welcome.sh
 fi
 
 
-	
+
 
  	if [[ "$?" == "1" ]]; then
 clear
@@ -358,7 +369,7 @@ dialog \
 menuitem=$(<"${INPUT}")
 
 
-case $menuitem in 
+case $menuitem in
     1) screenFetch;;
     2) Update_computer;;
     3) Fix_Dpkg;;
