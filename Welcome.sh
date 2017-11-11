@@ -228,8 +228,8 @@ path=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P );
 if [[ ! -f "/usr/bin/dialog" ]]; then
   clear
   echo "You do not have 'Dialog' installed"
-  read -p "Would you like to install Dialog? y/n: " dia
-    if [ "$dia" == "y" ]; then
+  read -p "Would you like to install Dialog? y/n: " yes_to_dialog
+    if [ "$yes_to_dialog" == "y" ]; then
       passwords && echo $password | sudo -S apt install dialog -y;
     fi
 fi
