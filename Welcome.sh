@@ -231,6 +231,11 @@ if [[ ! -f "/usr/bin/dialog" ]]; then
   read -p "Would you like to install Dialog? y/n: " yes_to_dialog
     if [ "$yes_to_dialog" == "y" ]; then
       sudo apt install dialog -y;
+
+    else
+      exit 0;
+
+
     fi
 fi
 
