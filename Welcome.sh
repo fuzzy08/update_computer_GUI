@@ -229,7 +229,7 @@ if [[ ! -f "/usr/bin/dialog" ]]; then
   clear
   echo "You do not have 'Dialog' installed"
   read -p "Would you like to install Dialog? y/n: " dia
-    if [[ "$dia" == "y" ]]; then
+    if [ "$dia" == "y" ]; then
       passwords && echo $password | sudo -S apt install dialog -y;
     fi
 fi
