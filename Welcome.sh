@@ -41,7 +41,7 @@ if [ -f /usr/bin/screenfetch ]; then
             response=$?
 
             case $response in
-                0) passwords && echo $password | sudo -S apt install screenfetch && clear && screenfetch && read -p "Press enter to continue" && main;;
+                0) passwords && echo $password | sudo -S apt install screenfetch -y && clear && screenfetch && read -p "Press enter to continue" && main;;
                 1) main;;
                 255) echo "Something went wrong"; break;;
             esac
